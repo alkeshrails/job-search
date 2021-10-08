@@ -27,6 +27,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+# Library that makes it a snap to build classes that can use Web-based APIs and related services.
+gem 'httparty', '~> 0.13.7'
+# Use Redis adapter to run Action Cable in production and resque for background jobs
+gem 'redis'
+# Style
+gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

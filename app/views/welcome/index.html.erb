@@ -1,0 +1,22 @@
+<div class="card">
+  <form method="get" role="search" action="<%= url_for job_search_path %>" class="float-left" >
+    <% if flash[:notice] %>
+      <div class="alert alert-info mb-0">
+        <div class="container text-center">
+          <%= flash[:notice].html_safe %>
+        </div>
+      </div>
+    <% end %>
+    <div class="container mt-4">
+      <span class=""><h1>Job Search</h1></span>
+      <div class="row">
+        <input name="search" type="search" class="col-8 form-control" placeholder="Search..." value="<%= @search %>">
+        <button type="submit" class="col-4 form-control btn btn-info">Search</button>     
+      </div>
+    </div>
+  </form>
+  </br></br></br></br>
+  <div class="container">
+    <%= link_to "View Result", job_listing_path , class: 'btn btn-primary' %>
+  </div>
+</div>

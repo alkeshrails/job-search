@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <%= link_to "Back to search", root_path, class: "btn btn-primary" %>
+  </div>
+  <% if !@jobs.nil? && (@jobs["rss"]["channel"]["totalResults"].to_i > 0) %>
+    <h1><%= @jobs["rss"]["channel"]["title"] %></h1>
+    <div>
+      <% @jobs["rss"]["channel"]["item"].each do |job| %>
+        <div>
+          <div>
+            <h2>
+              #<%= job["guid"] %> <span><%= link_to(job["title"], job["link"]) %></span>            
+            </h2>
+          </div>
+          <div>
+            <span>Category - <%= job['category'] %></span>
+          </div>
+          <div>
+            <span>Author - <%= job['author']['name'] %></span>
+          </div>
+          <div>
+            <span>publish Date - <%=  job['pubDate'] %></span>
+          </div>
+          <div>
+            Description: </br>
+            <%= job['description'].html_safe %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @jobs["rss"]["channel"]["totalResults"].to_i == 0 %>
+    <div class="">
+      <p>No matching results found</p>
+    </div>
+  <% else %>
+    <div class="">
+      <p>Results are not yet available, Please reload the page</p>
+    </div>
+  <% end %>
+</div>
